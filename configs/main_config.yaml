@@ -1,0 +1,53 @@
+defaults:
+  - _self_
+
+data:
+  # Paths
+  raw_dir: "/mnt/d/waymo_datasets/uncompressed/scenario"
+  processed_dir: "/mnt/d/waymo_datasets/Deep-Flow_Dataset/processed_npz"
+  
+  # Sampling Constants
+  history_steps: 11     # t=0 to t=10
+  future_steps: 80      # t=11 to t=90
+  total_steps: 91
+  current_time_index: 10 # 1.1 seconds in (10Hz)
+
+  # Selection
+  max_agents: 32        # Ego + 31 Neighbors
+  max_map_elements: 256 # Closest polylines
+  map_points_per_element: 20 # Resample lanes to this fixed size
+
+  # Map Feature Encoding (One-Hot approximation)
+  # 0: Lane Center, 1: Road Edge, 2: Crosswalk, 3: Stop Sign, 4: Driveway
+  
+processing:
+  n_workers: 8          # Parallel processes for parsing
+  shard_size: 100       # How many scenarios per .npz file (optional)
+
+# Hydra Settings
+hydra:
+  job:
+    chdir: False
+
+# --- Model Architecture ---
+model:
+  latent_dim: 12         # Number of PCA components
+  context_dim: 256       # Hidden dimension of the Transformer/Encoder
+  time_dim: 64           # Sinusoidal embedding size
+  head_hidden_dim: 1024   # Width of the Flow Head Residual MLP
+  dropout: 0.1
+
+# --- Training Hyperparameters ---
+training:
+  # Optimization
+  batch_size: 256        # Optimized for 24GB VRAM
+  lr: 5e-4               # Scaled learning rate for larger batch
+  weight_decay: 1e-2    # High weight decay for manifold smoothness
+  epochs: 100
+  clip_grad_norm: 1.0
+  
+  # Memory Management
+  in_memory: True        # Uses your 64GB RAM to avoid disk I/O bottlenecks
+  num_workers: 12         # Parallel workers for the DataLoader
+  prefetch_factor: 2     # Each worker will pre-load 8 batches in advance
+  pin_memory: True       # Speeds up transfer to GPU

@@ -1,0 +1,33 @@
+# --- Python environment ---
+.venv/
+.history/
+__pycache__/
+*.py[cod]
+*$py.class
+.ipynb_checkpoints/
+
+# --- Data & Artifacts (CRITICAL TO IGNORE) ---
+# We do NOT want raw or processed datasets on GitHub
+data/raw_womd/
+data/processed_npz/
+data/val_scores.csv
+data/likelihood_results.csv
+data/golden_test_set.csv
+
+# Keep these specifically because they are small and 
+# allow others to run your notebooks without re-parsing data
+# !data/stats.json
+# !data/pca_basis.json
+
+# --- Models & Training ---
+outputs/
+runs/
+
+# --- OS & IDE ---
+.DS_Store
+.vscode/
+.idea/
+.env
+
+# --- Waymo specific ---
+*.tfrecord*
