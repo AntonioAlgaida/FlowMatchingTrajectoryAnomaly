@@ -136,6 +136,31 @@ The learned vector field exhibits strong convergence, "funneling" random noise i
   <em><b>Figure 3: Latent Flow Dynamics.</b> Streamline visualization showing high-likelihood integration for nominal paths vs. high-resistance integration for anomalies.</em>
 </p>
 
+### Additional Visualizations
+
+#### Appendix Gallery: Anomaly Examples
+
+<p align="center">
+  <img src="figures/appendix_gallery_1.png" width="1800" alt="Anomaly Gallery 1">
+</p>
+<p align="center">
+  <em><b>Figure 4a: Generative Robustness Gallery (1/3).</b> A random selection of validation scenarios. The model (Cyan bundles) demonstrates consistent lane adherence and goal convergence across various driving contexts, verifying that the learned vector field generalizes well beyond the training distribution.</em>
+</p>
+
+<p align="center">
+  <img src="figures/appendix_gallery_2.png" width="1800" alt="Anomaly Gallery 2">
+</p>
+<p align="center">
+  <em><b>Figure 4b: Generative Robustness Gallery (2/3).</b> Additional validation scenarios showcasing the model's ability to handle complex interactions, such as merging and lane changes, while maintaining a coherent flow towards the goal.</em>
+</p>
+
+<p align="center">
+  <img src="figures/appendix_gallery_3.png" width="1800" alt="Anomaly Gallery 3">
+</p>
+<p align="center">
+  <em><b>Figure 4c: Generative Robustness Gallery (3/3).</b> Final set of validation scenarios confirming the model's stability and reliability in diverse traffic situations, reinforcing its suitability for real-world safety validation.</em>
+</p>
+
 ## 9. Future Work
 - **Non-Linear Manifolds:** Replacing PCA with a VQ-VAE to capture high-curvature geometries (e.g., tight roundabouts).
 - **Social Force Field:** Explicitly penalizing flow vectors that lead to agent-agent collisions.
