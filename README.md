@@ -5,6 +5,9 @@
 </p>
 
 <p align="center">
+  <a href="https://arxiv.org/abs/2602.17586" target="_blank">
+    <img src="https://img.shields.io/badge/ArXiv-2602.17586-b31b1b.svg?style=flat-square" alt="ArXiv Paper">
+  </a>
   <a href="https://github.com/AntonioAlgaida/FlowMatchingTrajectoryAnomaly" target="_blank">
     <img src="https://img.shields.io/badge/GitHub-Deep--Flow-blue?style=flat-square&logo=github" alt="GitHub Repo">
   </a>
@@ -23,6 +26,7 @@
   <a href="https://www.linkedin.com/in/antonioguillenperez/" target="_blank"><strong>LinkedIn</strong></a> | 
   <a href="https://scholar.google.com/citations?user=BFS6jXwAAAAJ" target="_blank"><strong>Google Scholar</strong></a>
 </p>
+
 
 ---
 
